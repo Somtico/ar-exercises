@@ -10,3 +10,17 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+# Prompt user for store name
+print "Enter a store name: "
+store_name = gets.chomp
+
+new_store = Store.new(name: store_name)
+
+if new_store.save
+  puts "Store created successfully"
+else
+  puts "Error creating store:"
+  new_store.errors.full_messages.each do |message|
+    puts message
+  end
+end
